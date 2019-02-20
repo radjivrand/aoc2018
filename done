@@ -1,0 +1,62 @@
+
+//neljas
+//$len = count($input);
+//echo $len;
+//
+//for ($i=0;$i<=$len;$i++) {
+//    for ($j=$i+1;$j<=$len;$j++) {
+//        $sim = similar_text($input[$i],$input[$j]);
+//
+//        if ($sim >= 25) {
+//        echo $i." vs ".$j.": ".$sim.("</br>");
+//        echo $input[$i]." vs ".$input[$j];
+//        
+//        }
+//    };
+//};
+
+
+
+
+
+
+
+
+//kolmas
+//function kalku($inp_string) {
+////  $comp_header = array("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "z", "x", "y");
+//
+//    $chars = str_split($inp_string);
+//    $result_arr = array();
+//    
+//  foreach ($chars as &$value) {
+//      $new_countarr[$value] += 1;
+//  }
+//    
+//    foreach ($new_countarr as &$val) {
+//        if ($val == 2) {
+//            $result_arr[0] = 1;
+//        } else if ($val == 3) {
+//            $result_arr[1] = 1;
+//        }
+//    }
+//    
+//    
+//        return($result_arr);
+//};
+//
+//$final_arr = array();
+//
+//foreach ($input as &$input_val) {
+//    $result = kalku($input_val);
+//    if ($result[0] == 1 ) {
+//        $final_arr[0] += 1;
+//    }
+//    if ($result[1] == 1 ) {
+//        $final_arr[1] += 1;
+//    }
+//
+//}
+//
+//    print_r($final_arr);
+//
