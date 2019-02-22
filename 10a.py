@@ -1,6 +1,7 @@
-import ast
+import numpy as np
+np.set_printoptions(threshold=4000)
 
-data = {}
+data = []
 data_text = []
 
 with open('10a_demo.txt',"rt") as input_file:
@@ -11,11 +12,25 @@ for element in data_text:
     s = element.replace("position=<", "")
     t = s.replace("> velocity=<", ",")
     u = t.replace(" ", "")
-    print u.split(",")
+    v = u.replace(">", "")
+    x = v.split(",")
+    # print (x[0])
+    data.append(x)
+
     # print element
 
-# kekk = ast.literal_eval(element)
+# print (len(data))
 
+# for row in range(0, len(data)):
+#     # print (data[row])
+#     print (int(data[row][1]) + 5 * int(data[row][3]))
+#     #max x 12, min x -4
+#     # max y 11, min y -3
+
+stars = np.chararray((5,5))
+stars[:] = '#'
+
+print (stars)
 # print (data_text)
 
 
