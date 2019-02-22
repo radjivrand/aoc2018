@@ -1,6 +1,8 @@
 import numpy as np
 np.set_printoptions(threshold=4000)
 
+import time
+
 data = []
 data_text = []
 
@@ -14,29 +16,32 @@ for element in data_text:
     u = t.replace(" ", "")
     v = u.replace(">", "")
     x = v.split(",")
-    # print (x[0])
     data.append(x)
 
-    # print element
+stars = np.chararray((31,31))
+stars[:] = "."
+clear = stars
 
-# print (len(data))
+for value in data:
+    value[0] = int(value[0]) + 10
+    value[1] = int(value[1]) + 10
 
-# for row in range(0, len(data)):
-#     # print (data[row])
-#     print (int(data[row][1]) + 5 * int(data[row][3]))
-#     #max x 12, min x -4
-#     # max y 11, min y -3
+# for value in data:
+#     print (value[1])
 
-stars = np.chararray((5,5))
-stars[:] = '#'
+for value in data:
+    stars[value[0],value[1]] = "#"
 
-print (stars)
-# print (data_text)
+    # for dot in stars:
+    #     print (''.join(map(str, dot)))
 
-
-#
-# print ('''
-# Tere
-# Minu
-# Uus
-# Vihik''')
+for i in range(0,5):
+    for value in data:
+        value[0] = int(value[0]) + int(value[2])
+        value[1] = int(value[1]) + int(value[3])
+        stars = clear
+        stars[value[0],value[1]] = "#"
+    for dot in stars:
+        print (''.join(map(str, dot)))
+    time.sleep(0.2)
+print (data)
