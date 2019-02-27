@@ -8,6 +8,7 @@ with open('12a_input_demo_start.txt',"rt") as input_file:
         start.append(line.rstrip('\n'))
 
 for element in start:
+    u = element.split()
     start_row.append(element)
 
 with open('12a_input_demo_notes.txt',"rt") as input_file:
@@ -25,4 +26,11 @@ for element in notes_input:
 
 
 
-print (start)
+a = 2
+
+juku = start_row[0][a:a+5]
+
+for asi in notes:
+    if asi[0] == juku:
+        print (asi[0])
+        print (asi[1])
