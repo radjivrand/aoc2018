@@ -24,13 +24,8 @@ for element in notes_input:
     notes.append(t)
 
 
-
-
-a = 2
-
-juku = start_row[0][a:a+5]
-
-for asi in notes:
-    if asi[0] == juku:
-        print (asi[0])
-        print (asi[1])
+for i in range(0, len(start_row[0])):
+    cur_sel = start_row[0][i:i+5]
+    for asi in notes:
+        if asi[0] == cur_sel:
+            print ("#")
