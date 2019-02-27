@@ -3,6 +3,7 @@ import re
 start, notes, start_row, notes_input = [],[],[],[]
 
 with open('12a_input_demo_start.txt',"rt") as input_file:
+    test = input_file
     for line in input_file:
         start.append(line.rstrip('\n'))
 
@@ -22,8 +23,6 @@ for element in notes_input:
     notes.append(t)
 
 
-lulla = "kabi"
 
-lulla.append('s')
 
-print lulla
+print (start)
