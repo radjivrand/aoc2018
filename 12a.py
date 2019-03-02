@@ -75,4 +75,4 @@ def count_pots(input_string, shifter):
 print (start_row[0])
 print pad_result[1]
 
-print count_pots(start_row[0], -0)
+print count_pots(start_row[0], 1)
