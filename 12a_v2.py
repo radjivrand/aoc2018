@@ -1,6 +1,8 @@
 import re
 import time
 
+ms = time.time()*1000.0
+
 start, notes, start_row, notes_input = [],[],[],[]
 
 with open('12a_input_start.txt',"rt") as input_file:
@@ -50,11 +52,15 @@ def get_next_row(input_string, input_notes):
     return (".." + result_string[:-2], result_numbers)
 
 nums = []
-for i in range (0,20):
+for i in range (0,20000):
     # print (pots)
     res  = get_next_row(pots, notes)
     pots = res[0]
     nums = res[1]
 
 print count_pots(pots, -27)
-print (pots)
+# print (pots)
+
+new_ms = time.time()*1000.0 - ms
+
+print (new_ms)
