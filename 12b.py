@@ -8,7 +8,6 @@ start, notes, start_row, notes_input = [],[],[],[]
 
 np_start = np.array([])
 
-
 with open('12a_input_demo_start.txt',"rt") as input_file:
     test = input_file
     for line in input_file:
@@ -16,11 +15,13 @@ with open('12a_input_demo_start.txt',"rt") as input_file:
 
 np_start = np.array(list(start[0]))
 
-print (np_start)
+# print (np_start)
 
 with open('12a_input_notes.txt',"rt") as input_file:
+    notes_counter = 0
     for line in input_file:
         notes_input.append(line.rstrip('\n'))
+        notes_counter += 1
 
 regex = r"(.....) => (.)"
 subst = "\\1 \\2"
@@ -29,16 +30,18 @@ for element in notes_input:
     t = s.split()
     notes.append(t)
 
-ok_notes = []
+asi = np.array([])
 
-for row in notes:
-    # print row[1]
-    if row[1] == "#":
-        ok_notes.append(row[0])
-
-np_notes = np.array(ok_notes)
-
-print (np_notes)
+for i in range (0, len(notes)):
+    if notes[i][1] == "#":
+        # print notes[i][0]
+        npnote = np.array(list(notes[i][0]))
+        # ok_notes.append(np.array(list(notes[i][0])))
+        # print (npnote)
+        print (npnote)
+        asi = np.append(asi, npnote, axis=0)
+# np_notes = np.array(ok_notes)
+print(asi[3])
 
 def count_pots(input_string, shifter):
     inp_list = list(input_string)
@@ -69,15 +72,15 @@ def get_next_row(input_string, input_notes):
     return (".." + result_string[:-2], result_numbers)
 
 nums = []
-for i in range (0,20000):
-    # print (pots)
-    res  = get_next_row(pots, notes)
-    pots = res[0]
-    nums = res[1]
-
-print count_pots(pots, -27)
+# for i in range (0,20000):
+#     # print (pots)
+#     res  = get_next_row(pots, notes)
+#     pots = res[0]
+#     nums = res[1]
+#
+# print count_pots(pots, -27)
 # print (pots)
 
 new_ms = time.time()*1000.0 - ms
 
-print (new_ms)
+# print (new_ms)
