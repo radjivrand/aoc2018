@@ -34,7 +34,7 @@ def count_pots(input_string, shifter):
             # print (counter)
     return pot_sum
 
-pots = ".........................." + start[0] + "......................."
+pots = ".........................." + start[0] + "................................................."
 
 def get_next_row(input_string, input_notes):
     result_numbers = []
@@ -52,14 +52,18 @@ def get_next_row(input_string, input_notes):
     return (".." + result_string[:-2], result_numbers)
 
 nums = []
-for i in range (0,20000):
+prev_pots = 0
+for i in range (0,59):
     # print (pots)
     res  = get_next_row(pots, notes)
     pots = res[0]
     nums = res[1]
+    # print (pots)
 
-print count_pots(pots, -27)
-# print (pots)
+
+    cur_pots = count_pots(pots, -27)
+    print (i, cur_pots - prev_pots)
+    prev_pots = cur_pots
 
 new_ms = time.time()*1000.0 - ms
 
