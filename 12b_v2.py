@@ -9,41 +9,36 @@ with open('12a_input_demo_start.txt',"rt") as input_file:
 start = start_row[0]
 regex = r"(.....) => (.)"
 subst = "\\1 \\2"
-notes_list = []
+notes = []
 with open('12a_input_demo_notes.txt',"rt") as input_file:
     for line in input_file:
         s = re.sub(regex, subst, line, 0, re.MULTILINE)
         s = s.split()
         if s[1] == "#":
-            inner_np = s[0]
-            notes_list.append(inner_np)
-notes = notes_list
-
-def get_next_numbers(start_in, notes_in):
-    result_numbers = []
-    for i in range (0, (len(start_in)-4)):
-        current_slice = (start_in[i:i+5])
-        for n in notes_in:
-            if (n == current_slice).all():
-                result_numbers.append(i+2)
-                break
-    empty_start = np.chararray((len(start_in)))
-    # print empty_start
-    empty_start[:] = "."
-    for a in result_numbers:
-        # print (a)
-        empty_start[a] = "#"
-    return empty_start
-# print get_next_numbers(start, notes)
-
-
+            notes.append(s[0])
 new_ms = time.time()*1000.0 - ms
 
+print (start)
+
+def dots(input_string):
+    regex = r"\A\.?\.?\.?\.*(#.*#)\.?\.?\.?\.*\Z"
+    # test_str = "....#..#.#..##......###...###..."
+    subst = "....\\1...."
+    # You can manually specify the number of replacements by changing the 4th argument
+    result = re.sub(regex, subst, input_string, 0, re.MULTILINE)
+    return result
+
+
+start = dots(start)
+
+print (start)
+
+new_start = [(start.find(n)) for n in notes if start.find(n) > 0]
+
+print(new_start)
 
 for n in notes:
-    # print (n)
-    print (start.find(n))
-
+    print (n, start.find(n))
 
 
 
