@@ -1,10 +1,18 @@
 import numpy as np
+import time
 
+a_ms = time.time()*1000.0
 
-asi = np.array("..##..", dtype = 'string')
+asi = np.string("..##..")
 
-print asi
+# print (asi)
 
-res = np.char.find(asi, "#")
+for i in range(0,1000):
 
-print res
+    res = np.char.find(asi, "#")
+
+# print (res)
+
+new_ms = time.time()*1000.0 - a_ms
+
+print (new_ms)
