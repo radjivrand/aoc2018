@@ -5,14 +5,14 @@ ms = time.time()*1000.0
 
 start, notes, start_row, notes_input = [],[],[],[]
 
-with open('12a_input_start.txt',"rt") as input_file:
+with open('12a_input_demo_start.txt',"rt") as input_file:
     test = input_file
     for line in input_file:
         start_row.append(line.rstrip('\n'))
 for element in start_row:
     u = element.split()
     start.append(element)
-with open('12a_input_notes.txt',"rt") as input_file:
+with open('12a_input_demo_notes.txt',"rt") as input_file:
     for line in input_file:
         notes_input.append(line.rstrip('\n'))
 
@@ -34,7 +34,7 @@ def count_pots(input_string, shifter):
             # print (counter)
     return pot_sum
 
-pots = ".........................." + start[0] + "......................."
+pots = ".........................." + start[0] + "................................................."
 
 def get_next_row(input_string, input_notes):
     result_numbers = []
@@ -52,14 +52,19 @@ def get_next_row(input_string, input_notes):
     return (".." + result_string[:-2], result_numbers)
 
 nums = []
-for i in range (0,20000):
+prev_pots = 0
+for i in range (0,59):
     # print (pots)
     res  = get_next_row(pots, notes)
     pots = res[0]
     nums = res[1]
+    # print (pots)
 
-print count_pots(pots, -27)
-# print (pots)
+
+    cur_pots = count_pots(pots, -27)
+    # print (i, cur_pots - prev_pots)
+    print (i, nums)
+    prev_pots = cur_pots
 
 new_ms = time.time()*1000.0 - ms
 
