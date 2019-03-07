@@ -33,9 +33,16 @@ start = dots(start)
 
 print (start)
 
-new_start = [(start.find(n)) for n in notes if start.find(n) > 0]
+# new_start = [(start.find(n)) for n in notes if start.find(n) > 0]
 
-print(new_start)
+# asi = [m.start() for m in re.finditer(re.escape("##..."), start)]
+
+asi = [start.find(n) for n in notes if start.find(n) > 0 in m.start() for m in re.finditer(re.escape(n), start)]
+
+
+print (asi)
+
+# print(new_start)
 
 for n in notes:
     print (n, start.find(n))
