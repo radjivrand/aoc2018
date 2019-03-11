@@ -37,16 +37,24 @@ print (start)
 
 # asi = [m.start() for m in re.finditer(re.escape("##..."), start)]
 
-asi = [start.find(n) for n in notes if start.find(n) > 0 in m.start() for m in re.finditer(re.escape(n), start)]
+# asi = [start.find(n) for n in notes if start.find(n) > 0 in m.start() for m in re.finditer(re.escape(n), start)]
 
+# asi = [m.start() for m in re.findall(re.escape("##..."), start)]
 
-print (asi)
+asi = (re.finditer(re.escape("##..."), start))
+
+for a in asi:
+    # print (a)
+    for x in a:
+        print (x)
+
+# print (asi)
 
 # print(new_start)
 
-for n in notes:
-    print (n, start.find(n))
+# for n in notes:
+#     print (n, start.find(n))
 
 
 
-print (new_ms)
+# print (new_ms)
