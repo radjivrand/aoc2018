@@ -18,8 +18,6 @@ with open('12a_input_demo_notes.txt',"rt") as input_file:
             notes.append(s[0])
 new_ms = time.time()*1000.0 - ms
 
-print (start)
-
 def dots(input_string):
     regex = r"\A\.?\.?\.?\.*(#.*#)\.?\.?\.?\.*\Z"
     # test_str = "....#..#.#..##......###...###..."
@@ -27,28 +25,16 @@ def dots(input_string):
     # You can manually specify the number of replacements by changing the 4th argument
     result = re.sub(regex, subst, input_string, 0, re.MULTILINE)
     return result
-
-
 start = dots(start)
 
-print (start)
+# list comprehension, nested, toimib
+asi = [m.start() for n in notes for m in re.finditer(re.escape(n), start)]
 
-# new_start = [(start.find(n)) for n in notes if start.find(n) > 0]
+print (asi)
+juku = []
 
-# asi = [m.start() for m in re.finditer(re.escape("##..."), start)]
-
-# asi = [start.find(n) for n in notes if start.find(n) > 0 in m.start() for m in re.finditer(re.escape(n), start)]
-
-# asi = [m.start() for m in re.findall(re.escape("##..."), start)]
-
-asi = (re.finditer(re.escape("##..."), start))
-
-for a in asi:
-    # print (a)
-    for x in a:
-        print (x)
-
-# print (asi)
+for z in asi:
+    print (z)
 
 # print(new_start)
 
