@@ -25,22 +25,19 @@ def dots(input_string):
     # You can manually specify the number of replacements by changing the 4th argument
     result = re.sub(regex, subst, input_string, 0, re.MULTILINE)
     return result
-start = dots(start)
 
-# list comprehension, nested, toimib
-asi = [m.start() for n in notes for m in re.finditer(re.escape(n), start)]
+for i in range (0,20):
 
-print (asi)
-juku = []
+    start = dots(start)
 
-for z in asi:
-    print (z)
+    # list comprehension, nested, toimib
+    asi = [m.start() for n in notes for m in re.finditer(re.escape(n), start)]
+    new_start = ["."] * (max(asi) + 1)
 
-# print(new_start)
+    for s in asi:
+        new_start[s] = "#"
 
-# for n in notes:
-#     print (n, start.find(n))
+    start = ''.join(new_start)
 
-
-
+    print start
 # print (new_ms)
